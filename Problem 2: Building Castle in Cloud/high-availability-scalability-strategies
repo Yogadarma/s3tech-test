@@ -1,0 +1,41 @@
+- Load Balancing & Failover (load balancer have job to make the load dyanically spread)
+    - Global Load Balancers (AWS ALB, Cloudflare, HAProxy)
+    - Multiple Data Centers (Active-Active/Passive mode)
+
+- Database Scalability
+    - Setup Read Replicas for high read throughput in database cluster, separating read and write data is a must for this apps.
+    - Activating for horizontal scaling, would be good if we can activated this features the the apps already optimized when processing the data.
+
+- Caching Strategy
+    - We can use Redis for API response caching, also this will make the resource is not to high
+    - CDN (Cloudflare, Akamai) for static assets, align with respon time this will give the good time response
+
+- Asynchronous Processing
+    - Message Queues (Kafka, RabbitMQ) for order execution
+
+- Disaster Recovery
+    - Multi-region deployments (multi A-Z in AWS)
+    - Automated Backups with versioning
+    - Failover strategies using cloud-native tools
+
+- Monitoring
+    - Prometheus, Grafana for real-time monitoring
+    - ELK stack for logs.
+
+- API Security
+    - Rate limiting (Cloudflare/NGINX)
+    - Web Application Firewall (WAF)
+
+- User Security
+    - Multi-Factor Authentication (MFA)
+    - Device Fingerprinting
+
+- Data Security
+    - End-to-End Encryption
+    - HSM for Private Key Storage (AWS KMS, Google Cloud KMS)
+
+- Deployment Strategy
+    - Kubernetes (K8s) for container orchestration
+    - CI/CD Pipelines with GitHub Actions / Jenkins
+    - Auto-scaling groups for handling traffic spikes (vertical or horizontal)
+

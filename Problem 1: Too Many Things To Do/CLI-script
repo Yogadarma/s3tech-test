@@ -1,0 +1,2 @@
+# run this script from CLI
+for i in $(cat transaction-log.txt | awk '{gsub(/,/,""); print $6}' ); do curl https://example.com/api/:${i} >> output.txt; done

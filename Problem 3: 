@@ -1,0 +1,17 @@
+First Step :
+  - Check which proses eating this resource i will use `ps aux --sort=-%cpu | head -10` or top or htop
+  - If It's confirm from NGINX services, then tail the log to check unusually process using `tail -f`
+    - Possible issues:
+      - High traffic (DDoS or legitimate)
+      - Misconfigured proxy_pass or infinite loops
+      - Too many worker processes consuming CPU
+
+  - If we find unusually activity, let's say this is repeating IP address hit, then block the IP `sudo iptables -A INPUT -s {IP address} -j DROP`
+  - If There is no unusually activity try to adjust NGINX configuration
+  Adjust these settings:
+    - Reduce worker_processes (set to the number of CPU cores)
+    - Optimize worker_connections (e.g., 1024 or 2048)
+    - Enable caching if applicable
+
+  - Another we can do is setup rate limit in nginx.
+  - If all this case didnt works, try to dig more in logs to find anomally URL and communicate it with developer.
